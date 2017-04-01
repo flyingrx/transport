@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        .main{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .main>div{
+            margin: 0 auto;
+        }
+        .ipt_group{
+            padding:20px;
+        }
+        #ipt_hw{
+            width: 100%;
+            font-size: 32px;
+            font-size: 2rem;
+        }
+        .btn{
+            width: 162px;
+            height: 159px;
+            background: url("images/radar2.png");
+        }
+        #main_h1{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="ipt_group">
+            <input type="text" placeholder="货物批次" id="ipt_hw">
+        </div>
+        <h1 id="main_h1"></h1>
+        <div class="btn" id="btn"></div>
+    </div>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var main_h1 = document.getElementById("main_h1");
+    var ipt_hw = document.getElementById("ipt_hw");
+    var i = 0;
+    btn.onclick=function () {
+        var html=''
+        switch (i){
+            case 0:
+                html='请输入货物批次';
+                ipt_hw.disabled=false;
+                i++;
+                break;
+            case 1:
+                html='运输中';
+                i++;
+                ipt_hw.disabled=true;
+                break;
+            case 2:
+                html='到达目的地';
+                i=0;
+                break;
+
+        }
+        main_h1.innerHTML=html;
+    }
+</script>
+</html>
